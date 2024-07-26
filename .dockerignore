@@ -1,0 +1,10 @@
+.dockerignore
+.gitignore
+CHANGELOG.md
+README.md
+WORKLIST.md
+docker
+docker-compose.*
+phpunit.xml
+storage
+tests

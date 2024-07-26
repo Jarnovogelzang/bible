@@ -1,0 +1,32 @@
+{
+  "name": "scripture/memorization",
+  "description": "Memorize Gods Word and take note of His lessons for you personally.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Jarno Vogelzang",
+      "email": "Jarnovogelzang@live.nl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Scripture\\Memorization\\": "src/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.34"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require": {
+    "php": "^8.3"
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  }
+}

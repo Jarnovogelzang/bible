@@ -1,0 +1,8 @@
+- [x] Use personal PHPStorm, GitKraken en mail account.
+- [x] Make a simple working version with Docker.
+- [x] Using Github for public repository storage and deployment.
+- [x] Include a README.md to start working with the application.
+- [x] Add the ability to read a lesson God has learnt me.
+- [ ] Add the ability to add a lesson that God wants me to learn.
+- [ ] Buy a licence for GitKraken.
+- [ ] Using Tailwind for the front-end CSS.

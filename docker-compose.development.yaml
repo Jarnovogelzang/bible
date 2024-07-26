@@ -1,0 +1,7 @@
+services:
+  application:
+    build:
+      dockerfile: docker/development.Dockerfile
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
