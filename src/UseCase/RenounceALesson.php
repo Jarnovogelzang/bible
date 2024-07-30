@@ -6,6 +6,6 @@ class RenounceALesson
 {
     public function execute(): string
     {
-        return "Je moet niets doen; Je moet zijn.";
+        return "Dit is een les die God mij heeft geleerd.";
     }
 }

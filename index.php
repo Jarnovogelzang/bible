@@ -1,5 +1,12 @@
 <?php
 
+use Scripture\Memorization\UseCase\ReadAVerse;
+use Scripture\Memorization\UseCase\RememberALesson;
+use Scripture\Memorization\UseCase\RenounceALesson;
+use Scripture\Memorization\UseCase\RenounceAllLessons;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
 function writeToOutput(string $text): void
 {
     echo $text . PHP_EOL;
@@ -7,18 +14,20 @@ function writeToOutput(string $text): void
 
 $commandToRun = $argv[1];
 
+$input = isset($argv[2]) ? $argv[2] : '';
+
 if ($commandToRun === 'verse:read') {
-    writeToOutput("Laat af en weet, dat Ik God ben.");
+    $useCase = new ReadAVerse();
 } elseif ($commandToRun === 'lesson:renounce') {
-    writeToOutput("Je moet niets doen; Je moet zijn.");
+    $useCase = new RenounceALesson();
 } elseif($commandToRun === 'lesson:remember') {
-    $lesson = $argv[2];
-
-    writeToOutput("Added the lesson to your list.");
-
-    file_put_contents(filename: __DIR__ . '/storage/lessons.txt', data: $lesson . PHP_EOL, flags: FILE_APPEND);
+    $useCase = new RememberALesson();
 } elseif ($commandToRun === 'lessons:renounce') {
-    $learntLessons = file_get_contents(filename: __DIR__ . '/storage/lessons.txt');
+    $useCase = new RenounceAllLessons();
+}
 
-    writeToOutput($learntLessons);
+$output = $useCase->execute($input);
+
+if($output) {
+    writeToOutput($output);
 }
