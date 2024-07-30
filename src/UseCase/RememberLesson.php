@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RememberALesson
+class RememberLesson
 {
     public function execute(string $lesson): string
     {

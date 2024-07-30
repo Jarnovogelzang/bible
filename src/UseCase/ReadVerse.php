@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class ReadAVerse
+class ReadVerse
 {
     public function execute(): string
     {

@@ -1,33 +1,29 @@
 <?php
 
-use Scripture\Memorization\UseCase\ReadAVerse;
-use Scripture\Memorization\UseCase\RememberALesson;
-use Scripture\Memorization\UseCase\RenounceALesson;
-use Scripture\Memorization\UseCase\RenounceAllLessons;
+use Scripture\Memorization\Command\ReadVerseCommand;
+use Scripture\Memorization\Command\RememberLessonCommand;
+use Scripture\Memorization\Command\RepeatAllLessonsCommand;
+use Scripture\Memorization\Command\RepeatSingleLessonCommand;
+use Scripture\Memorization\UseCase\ReadVerse;
+use Scripture\Memorization\UseCase\RememberLesson;
+use Scripture\Memorization\UseCase\RepeatAllLessons;
+use Scripture\Memorization\UseCase\RepeatSingleLesson;
+use Symfony\Component\Console\Application;
 
 require_once __DIR__.'/vendor/autoload.php';
 
-function writeToOutput(string $text): void
-{
-    echo $text.PHP_EOL;
-}
+$application = new Application(name: 'Memorize Scripture', version: '0.0.1');
 
-$commandToRun = $argv[1];
+$readVerseCommand = new ReadVerseCommand(new ReadVerse);
+$application->add($readVerseCommand);
 
-$input = isset($argv[2]) ? $argv[2] : '';
+$rememberLessonCommand = new RememberLessonCommand(new RememberLesson);
+$application->add($rememberLessonCommand);
 
-if ($commandToRun === 'verse:read') {
-    $useCase = new ReadAVerse;
-} elseif ($commandToRun === 'lesson:renounce') {
-    $useCase = new RenounceALesson;
-} elseif ($commandToRun === 'lesson:remember') {
-    $useCase = new RememberALesson;
-} elseif ($commandToRun === 'lessons:renounce') {
-    $useCase = new RenounceAllLessons;
-}
+$repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons);
+$application->add($repeatAllLessonsCommand);
 
-$output = $useCase->execute($input);
+$repeatSingleLessonCommand = new RepeatSingleLessonCommand(new RepeatSingleLesson);
+$application->add($repeatSingleLessonCommand);
 
-if ($output) {
-    writeToOutput($output);
-}
+$application->run();

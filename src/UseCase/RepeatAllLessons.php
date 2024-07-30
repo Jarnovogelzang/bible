@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RenounceAllLessons
+class RepeatAllLessons
 {
     public function execute(): string
     {

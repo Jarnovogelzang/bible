@@ -25,7 +25,8 @@
     }
   },
   "require": {
-    "php": "^8.3"
+    "php": "^8.3",
+    "symfony/console": "^7.1"
   },
   "scripts": {
     "fix": "vendor/bin/pint",

@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Code style via Laravel Pint.
 
+### Changed
+
+- Refactored to a simple Symfony CLI application.
+
 ## 2024-07-28
 
 ### Added
