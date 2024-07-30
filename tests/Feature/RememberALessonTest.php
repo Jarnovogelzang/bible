@@ -8,10 +8,10 @@ test('Remember a lesson that God is learning me', function () {
         message: 'The lesson was not added.'
     );
 
-    $renouncedLessons = shell_exec("php index.php lessons:renounce");
+    $renouncedLessons = shell_exec('php index.php lessons:renounce');
     $this->assertStringContainsString(
-        needle: "Dit is een les die God mij heeft geleerd.",
+        needle: 'Dit is een les die God mij heeft geleerd.',
         haystack: $renouncedLessons,
-        message: "The learnt lesson was not renounced."
+        message: 'The learnt lesson was not renounced.'
     );
 });

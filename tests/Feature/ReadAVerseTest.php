@@ -6,6 +6,6 @@ test('Read a verse from the Word of God', function () {
     $this->assertSame(
         expected: "Laat af en weet, dat Ik God ben.\n",
         actual: $readVerse,
-        message: "The verse was not read."
+        message: 'The verse was not read.'
     );
 });
