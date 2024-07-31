@@ -6,5 +6,4 @@ else
   COMPOSE_FILES="--file docker-compose.yaml --file docker-compose.development.yaml"
 fi
 
-docker compose $COMPOSE_FILES build application
-docker compose $COMPOSE_FILES run application bash
+docker compose $COMPOSE_FILES run --build application bash

@@ -16,8 +16,10 @@
     }
   },
   "require-dev": {
+    "roave/security-advisories": "dev-latest",
     "pestphp/pest": "^2.34",
-    "laravel/pint": "*"
+    "laravel/pint": "*",
+    "phpstan/phpstan": "*"
   },
   "config": {
     "allow-plugins": {
@@ -26,11 +28,16 @@
   },
   "require": {
     "php": "^8.3",
-    "symfony/console": "^7.1"
+    "symfony/console": "^7.1",
+    "jolicode/jolinotif": "^2.7"
   },
   "scripts": {
     "fix": "vendor/bin/pint",
-    "test": "vendor/bin/pest && vendor/bin/pint --test"
+    "test": [
+      "vendor/bin/pest",
+      "vendor/bin/phpstan analyse src",
+      "vendor/bin/pint --test"
+    ]
   },
   "scripts-descriptions": {
     "fix": "Run code style formatter",

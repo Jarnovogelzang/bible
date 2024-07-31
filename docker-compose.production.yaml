@@ -2,3 +2,4 @@ services:
   application:
     build:
       dockerfile: docker/production.Dockerfile
+    command: lessons:repeat

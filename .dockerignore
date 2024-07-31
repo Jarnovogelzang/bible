@@ -7,4 +7,5 @@ docker
 docker-compose.*
 phpunit.xml
 storage
+!storage/.gitignore
 tests
