@@ -33,7 +33,7 @@
   "scripts": {
     "fix": "vendor/bin/pint",
     "test": [
-      "vendor/bin/pest",
+      "XDEBUG_MODE=coverage vendor/bin/pest --coverage",
       "vendor/bin/phpstan analyse src",
       "vendor/bin/pint --test"
     ]

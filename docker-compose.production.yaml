@@ -2,3 +2,4 @@ services:
   application:
     build:
       dockerfile: docker/production.Dockerfile
+    working_dir: /usr/src/app
