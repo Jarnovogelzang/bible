@@ -3,6 +3,7 @@
 - [x] Using Github for public repository storage and deployment.
 - [x] Include a README.md to start working with the application.
 - [x] Add the ability to read a lesson God has learnt me.
-- [ ] Add the ability to add a lesson that God wants me to learn.
+- [x] Add the ability to add a lesson that God wants me to learn.
+- [ ] Make the tests function like real-world (user) scenario's.
 - [ ] Buy a licence for GitKraken.
 - [ ] Using Tailwind for the front-end CSS.

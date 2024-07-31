@@ -18,8 +18,8 @@
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "pestphp/pest": "^2.34",
-    "laravel/pint": "*",
-    "phpstan/phpstan": "*"
+    "laravel/pint": "^1.17",
+    "phpstan/phpstan": "^1.11"
   },
   "config": {
     "allow-plugins": {
@@ -28,8 +28,7 @@
   },
   "require": {
     "php": "^8.3",
-    "symfony/console": "^7.1",
-    "jolicode/jolinotif": "^2.7"
+    "symfony/console": "^7.1"
   },
   "scripts": {
     "fix": "vendor/bin/pint",

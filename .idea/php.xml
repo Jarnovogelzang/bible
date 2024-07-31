@@ -30,8 +30,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/brianium/paratest" />
-      <path value="$PROJECT_DIR$/vendor/jolicode/jolinotif" />
-      <path value="$PROJECT_DIR$/vendor/jolicode/php-os-helper" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />

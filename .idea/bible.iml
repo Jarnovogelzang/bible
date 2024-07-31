@@ -60,9 +60,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/pint" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jolicode/jolinotif" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jolicode/php-os-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpstan/phpstan" />
+      <excludeFolder url="file://$MODULE_DIR$/.obsidian" />
+      <excludeFolder url="file://$MODULE_DIR$/storage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
