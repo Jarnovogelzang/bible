@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added Rector.
+- Tried an abstract use case test class to have a framework for tests at different abstraction levels.
 
 ### Changed
 

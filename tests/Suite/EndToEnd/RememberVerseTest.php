@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\EndToEnd;
+namespace Tests\Suite\EndToEnd;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
