@@ -11,16 +11,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'verse:remember', description: 'Remember a verse from the Bible that God has spoken to me (personally)')]
 class RememberVerseCommand extends Command
 {
-    public function __construct(private RememberVerse $useCase)
+    public function __construct(private readonly RememberVerse $useCase)
     {
         parent::__construct();
     }
 
+    #[\Override]
     protected function configure(): void
     {
         $this->addArgument(name: 'verse', description: 'The verse from the Bible.');
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string $verse */

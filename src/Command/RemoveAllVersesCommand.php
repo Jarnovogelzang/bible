@@ -11,11 +11,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'verses:remove', description: 'Remove all your verses.')]
 class RemoveAllVersesCommand extends Command
 {
-    public function __construct(private RemoveAllVerses $useCase)
+    public function __construct(private readonly RemoveAllVerses $useCase)
     {
         parent::__construct();
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->useCase->execute();

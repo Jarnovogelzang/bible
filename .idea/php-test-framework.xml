@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpTestFrameworkSettings">
-    <test_tools>
-      <tool tool_name="Pest">
-        <settings>
-          <configurations>
-            <configuration_by_sdk interpreter_id="57ddb703-0101-4821-8bfa-4847a43c1dcf" executable_path="vendor/bin/pest" />
-            <local_configuration configuration_file_path="$PROJECT_DIR$/phpunit.xml" executable_path="$PROJECT_DIR$/vendor/pestphp/pest/bin/pest" use_configuration_file="true" />
-          </configurations>
-        </settings>
+  <component name="PhpTestFrameworkVersionCache">
+    <tools_cache>
+      <tool tool_name="PHPUnit">
+        <cache>
+          <versions>
+            <info id="interpreter-e575ef36-06c4-4428-900b-365b030d95d4" version="10.5.17" />
+          </versions>
+        </cache>
       </tool>
-    </test_tools>
+    </tools_cache>
   </component>
 </project>

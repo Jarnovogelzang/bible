@@ -11,11 +11,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'lessons:remove', description: 'Remove all your lessons.')]
 class RemoveAllLessonsCommand extends Command
 {
-    public function __construct(private RemoveAllLessons $useCase)
+    public function __construct(private readonly RemoveAllLessons $useCase)
     {
         parent::__construct();
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->useCase->execute();

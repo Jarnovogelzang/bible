@@ -11,11 +11,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'lessons:repeat', description: 'Repeat all lessons learnt from God.')]
 class RepeatAllLessonsCommand extends Command
 {
-    public function __construct(private RepeatAllLessons $useCase)
+    public function __construct(private readonly RepeatAllLessons $useCase)
     {
         parent::__construct();
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $learntLessons = $this->useCase->execute();
