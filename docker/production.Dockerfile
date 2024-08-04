@@ -15,7 +15,7 @@ RUN composer install --no-dev --no-autoloader
 
 # Copy the needed application code
 COPY application.php .
-COPY src .
+COPY src ./src
 
 # Dump Composer's autoloader (see https://getcomposer.org/doc/articles/autoloader-optimization.md)
 RUN composer dumpautoload --classmap-authoritative --optimize
