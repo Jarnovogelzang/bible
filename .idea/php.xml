@@ -6,6 +6,7 @@
     </laravel_pint_settings>
   </component>
   <component name="LaravelPintOptionsConfiguration">
+    <option name="pintJsonPath" value="pint.json" />
     <option name="ruleset" value="symfony" />
   </component>
   <component name="MessDetectorOptionsConfiguration">
@@ -132,6 +133,11 @@
     </PhpStan_settings>
   </component>
   <component name="PhpStanOptionsConfiguration">
+    <option name="autoload" value="vendor/autoload.php" />
+    <option name="config" value="phpstan.neon" />
+    <option name="fullProject" value="true" />
+    <option name="level" value="8" />
+    <option name="memoryLimit" value="8G" />
     <option name="transferred" value="true" />
   </component>
   <component name="PhpUnit">

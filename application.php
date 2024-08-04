@@ -18,12 +18,12 @@ require_once __DIR__.'/vendor/autoload.php';
 
 $application = new Application(name: 'Memorize Scripture', version: '0.0.1');
 
-$rememberLessonCommand = new RememberLessonCommand(new RememberLesson);
-$rememberVerseCommand = new RememberVerseCommand(new RememberVerse);
-$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons);
-$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses);
-$repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons);
-$repeatAllVersesCommand = new RepeatAllVersesCommand(new RepeatAllVerses);
+$rememberLessonCommand = new RememberLessonCommand(new RememberLesson());
+$rememberVerseCommand = new RememberVerseCommand(new RememberVerse());
+$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons());
+$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses());
+$repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons());
+$repeatAllVersesCommand = new RepeatAllVersesCommand(new RepeatAllVerses());
 
 $application->add($rememberLessonCommand);
 $application->add($rememberVerseCommand);

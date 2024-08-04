@@ -12,19 +12,19 @@ class RememberLessonTest extends \Tests\UseCase\RememberLessonTest
 
     protected function givenAllLessonsAreRemoved(): void
     {
-        $removeAllLessons = new RemoveAllLessons;
+        $removeAllLessons = new RemoveAllLessons();
         $removeAllLessons->execute();
     }
 
     protected function whenIRememberALesson(string $lesson): void
     {
-        $rememberLesson = new RememberLesson;
+        $rememberLesson = new RememberLesson();
         $rememberLesson->execute($lesson);
     }
 
     protected function andIRepeatAllLessons(): void
     {
-        $repeatAllLessons = new RepeatAllLessons;
+        $repeatAllLessons = new RepeatAllLessons();
         $this->lessons = $repeatAllLessons->execute();
     }
 
