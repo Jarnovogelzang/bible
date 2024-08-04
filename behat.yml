@@ -1,0 +1,8 @@
+default:
+  suites:
+    EndToEnd:
+      contexts:
+        - Features\EndToEndContext
+    Unit:
+      contexts:
+        - Features\UnitContext

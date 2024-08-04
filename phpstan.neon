@@ -1,5 +1,6 @@
 parameters:
   level: max
   paths:
+    - features/bootstrap
     - src
     - tests

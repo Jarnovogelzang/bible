@@ -17,6 +17,7 @@
   },
   "autoload-dev": {
     "psr-4": {
+      "Features\\": "features/bootstrap/",
       "Tests\\": "tests/"
     }
   },
@@ -25,7 +26,8 @@
     "laravel/pint": "^1.17",
     "phpstan/phpstan": "^1.11",
     "phpunit/phpunit": "^11",
-    "rector/rector": "^1.2"
+    "rector/rector": "^1.2",
+    "behat/behat": "^3.14"
   },
   "config": {
     "allow-plugins": {
@@ -37,8 +39,12 @@
     "symfony/console": "^7.1"
   },
   "scripts": {
-    "fix": "vendor/bin/pint",
+    "fix": [
+      "vendor/bin/pint",
+      "vendor/bin/rector"
+    ],
     "test": [
+      "vendor/bin/behat",
       "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text",
       "vendor/bin/phpstan analyse src tests",
       "vendor/bin/pint --test"

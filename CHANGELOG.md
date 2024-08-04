@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 2024-08-04
 
+### Added
+
+- Added Behat for testing use cases. It's better suited than PHPUnit.
+
 ### Changed
 
 - Cleaned up some code and added some software to keep the codebase clean.

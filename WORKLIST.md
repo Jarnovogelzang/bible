@@ -5,6 +5,8 @@
 - [x] Add the ability to read a lesson God has learnt me.
 - [x] Add the ability to add a lesson that God wants me to learn.
 - [ ] Make the tests function like real-world (user) scenario's.
+  - [ ] Use Gherkin in combination with different contexts to have real-world scenario tests.
+  - [ ] Use specific PHPUnit test classes to cover _edge cases_.
 - [ ] Add remote code coverage over the PHP CLI with xDebug.
 - [ ] Buy a licence for GitKraken.
 - [ ] Using Tailwind for the front-end CSS.
