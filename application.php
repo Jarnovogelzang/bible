@@ -13,14 +13,17 @@ use Scripture\Memorization\UseCase\RemoveAllVerses;
 use Scripture\Memorization\UseCase\RepeatAllLessons;
 use Scripture\Memorization\UseCase\RepeatAllVerses;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Filesystem\Filesystem;
 
 require_once __DIR__.'/vendor/autoload.php';
 
 $application = new Application(name: 'Memorize Scripture', version: '0.0.1');
 
-$rememberLessonCommand = new RememberLessonCommand(new RememberLesson());
-$rememberVerseCommand = new RememberVerseCommand(new RememberVerse());
-$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons());
+$filesystem = new Filesystem();
+
+$rememberLessonCommand = new RememberLessonCommand(new RememberLesson($filesystem));
+$rememberVerseCommand = new RememberVerseCommand(new RememberVerse($filesystem));
+$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons($filesystem));
 $removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses());
 $repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons());
 $repeatAllVersesCommand = new RepeatAllVersesCommand(new RepeatAllVerses());

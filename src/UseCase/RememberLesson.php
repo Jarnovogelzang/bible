@@ -2,14 +2,19 @@
 
 namespace Scripture\Memorization\UseCase;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class RememberLesson
 {
+    public function __construct(private readonly Filesystem $filesystem)
+    {
+    }
+
     public function execute(string $lesson): void
     {
-        file_put_contents(
+        $this->filesystem->appendToFile(
             filename: __DIR__.'/../../storage/lessons.txt',
-            data: $lesson.PHP_EOL,
-            flags: FILE_APPEND
+            content: $lesson.PHP_EOL
         );
     }
 }

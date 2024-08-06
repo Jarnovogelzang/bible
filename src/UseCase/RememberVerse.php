@@ -2,14 +2,19 @@
 
 namespace Scripture\Memorization\UseCase;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class RememberVerse
 {
+    public function __construct(private Filesystem $filesystem)
+    {
+    }
+
     public function execute(string $verse): void
     {
-        file_put_contents(
+        $this->filesystem->appendToFile(
             filename: __DIR__.'/../../storage/verses.txt',
-            data: $verse.PHP_EOL,
-            flags: FILE_APPEND
+            content: $verse.PHP_EOL
         );
     }
 }

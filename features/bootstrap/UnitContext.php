@@ -10,6 +10,7 @@ use PHPUnit\Framework\Assert;
 use Scripture\Memorization\UseCase\RememberLesson;
 use Scripture\Memorization\UseCase\RemoveAllLessons;
 use Scripture\Memorization\UseCase\RepeatAllLessons;
+use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Defines application features from the specific context.
@@ -21,7 +22,7 @@ class UnitContext implements Context
     #[Given('all the learnt lessons are removed')]
     public function allTheLearntLessonsAreRemoved(): void
     {
-        $removeAllLessons = new RemoveAllLessons();
+        $removeAllLessons = new RemoveAllLessons(new Filesystem());
         $removeAllLessons->execute();
     }
 
@@ -32,18 +33,18 @@ class UnitContext implements Context
         $this->lessons = $repeatAllLessons->execute();
     }
 
-    #[When('I remember the lesson :lesson')]
-    public function iRememberTheLesson(string $lesson): void
+    #[When('I remember the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iRememberTheLesson(): void
     {
-        $rememberLesson = new RememberLesson();
-        $rememberLesson->execute($lesson);
+        $rememberLesson = new RememberLesson(new Filesystem());
+        $rememberLesson->execute('Je mag je hart ophalen en plezier hebben in het leven.');
     }
 
-    #[Then('I should see the lesson :lesson')]
-    public function iShouldSeeTheLesson(string $lesson): void
+    #[Then('I should see the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iShouldSeeTheLesson(): void
     {
         Assert::assertStringContainsString(
-            needle: $lesson,
+            needle: 'Je mag je hart ophalen en plezier hebben in het leven.',
             haystack: $this->lessons,
             message: 'The learnt lesson was not renounced.'
         );

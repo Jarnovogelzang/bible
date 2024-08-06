@@ -7,18 +7,23 @@ use Behat\Step\Given;
 use Behat\Step\Then;
 use Behat\Step\When;
 use PHPUnit\Framework\Assert;
+use Scripture\Memorization\Command\RememberLessonCommand;
 use Scripture\Memorization\Command\RemoveAllLessonsCommand;
+use Scripture\Memorization\Command\RepeatAllLessonsCommand;
 use Symfony\Component\Console\Tester\CommandTester;
+use Symfony\Component\Filesystem\Filesystem;
+use Tests\Stub\UseCase\RememberLessonStub;
 use Tests\Stub\UseCase\RemoveAllLessonsStub;
+use Tests\Stub\UseCase\RepeatAllLessonsStub;
 
 class IntegrationContext implements Context
 {
-    private string $lessons;
+    private string $repeatedLessons;
 
     #[Given('all the learnt lessons are removed')]
     public function allTheLearntLessonsAreRemoved(): void
     {
-        $removeAllLessonsStub = new RemoveAllLessonsStub();
+        $removeAllLessonsStub = new RemoveAllLessonsStub(new Filesystem());
         $removeAllLessonsCommand = new RemoveAllLessonsCommand($removeAllLessonsStub);
 
         $commandTester = new CommandTester($removeAllLessonsCommand);
@@ -35,28 +40,46 @@ class IntegrationContext implements Context
     #[When('I repeat all lessons learnt so far')]
     public function iRepeatAllLessonsLearntSoFar(): void
     {
-        $lessons = shell_exec('php application.php lessons:repeat');
+        $repeatAllLessonsStub = new RepeatAllLessonsStub('Je mag je hart ophalen en plezier hebben in het leven.');
+        $repeatAllLessonsCommand = new RepeatAllLessonsCommand($repeatAllLessonsStub);
 
-        Assert::assertIsString($lessons);
+        $commandTester = new CommandTester($repeatAllLessonsCommand);
+        $commandTester->execute([]);
 
-        $this->lessons = $lessons;
+        $commandTester->assertCommandIsSuccessful();
+
+        $this->repeatedLessons = $commandTester->getDisplay();
+
+        $repeatAllLessonsStub->assertIsCalled();
     }
 
-    #[When('I remember the lesson :lesson')]
-    public function iRememberTheLesson(string $lesson): void
+    #[When('I remember the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iRememberTheLesson(): void
     {
-        $message = shell_exec('php application.php lesson:remember "'.$lesson.'"');
+        $rememberLessonStub = new RememberLessonStub(new Filesystem());
+        $rememberLessonCommand = new RememberLessonCommand($rememberLessonStub);
 
-        Assert::assertIsString($message);
-        Assert::assertStringContainsString(needle: 'Added the lesson to your list.', haystack: $message);
+        $commandTester = new CommandTester($rememberLessonCommand);
+        $commandTester->execute([
+            'lesson' => 'Je mag je hart ophalen en plezier hebben in het leven.',
+        ]);
+
+        $commandTester->assertCommandIsSuccessful();
+
+        $commandOutput = $commandTester->getDisplay();
+        Assert::assertIsString($commandOutput);
+        Assert::assertStringContainsString(needle: 'Added the lesson to your list.', haystack: $commandOutput);
+
+        $rememberLessonStub->assertIsCalled();
+        $rememberLessonStub->assertLessonIsRemember('Je mag je hart ophalen en plezier hebben in het leven.');
     }
 
-    #[Then('I should see the lesson :lesson')]
-    public function iShouldSeeTheLesson(string $lesson): void
+    #[Then('I should see the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iShouldSeeTheLesson(): void
     {
         Assert::assertStringContainsString(
-            needle: $lesson,
-            haystack: $this->lessons,
+            needle: 'Je mag je hart ophalen en plezier hebben in het leven.',
+            haystack: $this->repeatedLessons,
             message: 'The learnt lesson was not renounced.'
         );
     }

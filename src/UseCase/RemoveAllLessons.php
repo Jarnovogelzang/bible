@@ -2,13 +2,16 @@
 
 namespace Scripture\Memorization\UseCase;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class RemoveAllLessons
 {
+    public function __construct(private readonly Filesystem $filesystem)
+    {
+    }
+
     public function execute(): void
     {
-        file_put_contents(
-            filename: __DIR__.'/../../storage/lessons.txt',
-            data: null
-        );
+        $this->filesystem->remove(__DIR__.'/../../storage/lessons.txt');
     }
 }

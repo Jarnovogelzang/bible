@@ -34,20 +34,20 @@ class EndToEndContext implements Context
         $this->lessons = $lessons;
     }
 
-    #[When('I remember the lesson :lesson')]
-    public function iRememberTheLesson(string $lesson): void
+    #[When('I remember the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iRememberTheLesson(): void
     {
-        $message = shell_exec('php application.php lesson:remember "'.$lesson.'"');
+        $message = shell_exec('php application.php lesson:remember "Je mag je hart ophalen en plezier hebben in het leven."');
 
         Assert::assertIsString($message);
         Assert::assertStringContainsString(needle: 'Added the lesson to your list.', haystack: $message);
     }
 
-    #[Then('I should see the lesson :lesson')]
-    public function iShouldSeeTheLesson(string $lesson): void
+    #[Then('I should see the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
+    public function iShouldSeeTheLesson(): void
     {
         Assert::assertStringContainsString(
-            needle: $lesson,
+            needle: 'Je mag je hart ophalen en plezier hebben in het leven.',
             haystack: $this->lessons,
             message: 'The learnt lesson was not renounced.'
         );
