@@ -3,9 +3,9 @@
 namespace Tests\Stub\UseCase;
 
 use PHPUnit\Framework\Assert;
-use Scripture\Memorization\UseCase\RemoveAllLessonsInterface;
+use Scripture\Memorization\UseCase\RemoveAllLessons;
 
-class RemoveAllLessonsStub implements RemoveAllLessonsInterface
+class RemoveAllLessonsStub extends RemoveAllLessons
 {
     private bool $isCalled = false;
 

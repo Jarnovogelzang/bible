@@ -2,9 +2,8 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RemoveAllLessons implements RemoveAllLessonsInterface
+class RemoveAllLessons
 {
-    #[\Override]
     public function execute(): void
     {
         file_put_contents(

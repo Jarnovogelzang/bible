@@ -2,9 +2,8 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RememberVerse implements RememberVerseInterface
+class RememberVerse
 {
-    #[\Override]
     public function execute(string $verse): void
     {
         file_put_contents(

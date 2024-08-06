@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\Command;
 
-use Scripture\Memorization\UseCase\RemoveAllLessonsInterface;
+use Scripture\Memorization\UseCase\RemoveAllLessons;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'lessons:remove', description: 'Remove all your lessons.')]
 class RemoveAllLessonsCommand extends Command
 {
-    public function __construct(private readonly RemoveAllLessonsInterface $useCase)
+    public function __construct(private readonly RemoveAllLessons $useCase)
     {
         parent::__construct();
     }

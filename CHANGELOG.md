@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Cleaned up some code and some tests.
+- Removed unused and unnecessary PHP interfaces.
 
 ## 2024-08-04
 

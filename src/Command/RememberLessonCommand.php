@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\Command;
 
-use Scripture\Memorization\UseCase\RememberLessonInterface;
+use Scripture\Memorization\UseCase\RememberLesson;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'lesson:remember', description: 'Remember a learnt lesson from God.')]
 class RememberLessonCommand extends Command
 {
-    public function __construct(private readonly RememberLessonInterface $useCase)
+    public function __construct(private readonly RememberLesson $useCase)
     {
         parent::__construct();
     }

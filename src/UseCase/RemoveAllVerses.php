@@ -2,9 +2,8 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RemoveAllVerses implements RemoveAllVersesInterface
+class RemoveAllVerses
 {
-    #[\Override]
     public function execute(): void
     {
         file_put_contents(
