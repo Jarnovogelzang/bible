@@ -36,7 +36,8 @@
   },
   "require": {
     "php": "^8.3",
-    "symfony/console": "^7.1"
+    "symfony/console": "^7.1",
+    "symfony/filesystem": "^7.1"
   },
   "scripts": {
     "fix": [

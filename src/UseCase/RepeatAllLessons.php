@@ -6,9 +6,13 @@ class RepeatAllLessons
 {
     private const string NO_LESSONS = '';
 
+    public function __construct(private readonly string $baseDirectory = __DIR__.'/../../storage')
+    {
+    }
+
     public function execute(): string
     {
-        $filePath = __DIR__.'/../../storage/lessons.txt';
+        $filePath = $this->baseDirectory.'/lessons.txt';
 
         if (!file_exists($filePath)) {
             return self::NO_LESSONS;
