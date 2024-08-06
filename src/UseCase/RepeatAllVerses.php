@@ -2,10 +2,11 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RepeatAllVerses
+class RepeatAllVerses implements RepeatAllVersesInterface
 {
     private const string NO_VERSES = '';
 
+    #[\Override]
     public function execute(): string
     {
         $filePath = __DIR__.'/../../storage/verses.txt';

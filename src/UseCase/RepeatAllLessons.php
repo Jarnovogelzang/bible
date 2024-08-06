@@ -2,7 +2,7 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RepeatAllLessons
+class RepeatAllLessons implements RepeatAllLessonsInterface
 {
     private const string NO_LESSONS = '';
 
@@ -10,6 +10,7 @@ class RepeatAllLessons
     {
     }
 
+    #[\Override]
     public function execute(): string
     {
         $filePath = $this->baseDirectory.'/lessons.txt';

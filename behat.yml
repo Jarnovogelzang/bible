@@ -3,6 +3,9 @@ default:
     EndToEnd:
       contexts:
         - Features\EndToEndContext
+    Integration:
+      contexts:
+        - Features\IntegrationContext
     Unit:
       contexts:
         - Features\UnitContext

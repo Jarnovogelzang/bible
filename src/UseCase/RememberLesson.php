@@ -2,8 +2,9 @@
 
 namespace Scripture\Memorization\UseCase;
 
-class RememberLesson
+class RememberLesson implements RememberLessonInterface
 {
+    #[\Override]
     public function execute(string $lesson): void
     {
         file_put_contents(
