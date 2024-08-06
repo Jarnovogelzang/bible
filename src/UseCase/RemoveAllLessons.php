@@ -6,8 +6,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class RemoveAllLessons
 {
-    public function __construct(private readonly Filesystem $filesystem)
+    private readonly Filesystem $filesystem;
+
+    public function __construct()
     {
+        $this->filesystem = new Filesystem();
     }
 
     public function execute(): void

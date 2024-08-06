@@ -24,7 +24,7 @@ $filesystem = new Filesystem();
 $rememberLessonCommand = new RememberLessonCommand(new RememberLesson($filesystem));
 $rememberVerseCommand = new RememberVerseCommand(new RememberVerse($filesystem));
 $removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons($filesystem));
-$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses());
+$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses($filesystem));
 $repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons());
 $repeatAllVersesCommand = new RepeatAllVersesCommand(new RepeatAllVerses());
 

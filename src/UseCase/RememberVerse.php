@@ -6,8 +6,11 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class RememberVerse
 {
-    public function __construct(private Filesystem $filesystem)
+    private readonly Filesystem $filesystem;
+
+    public function __construct()
     {
+        $this->filesystem = new Filesystem();
     }
 
     public function execute(string $verse): void

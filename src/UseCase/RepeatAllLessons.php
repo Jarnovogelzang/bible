@@ -2,22 +2,28 @@
 
 namespace Scripture\Memorization\UseCase;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 class RepeatAllLessons
 {
     private const string NO_LESSONS = '';
 
-    public function __construct(private readonly string $baseDirectory = __DIR__.'/../../storage')
-    {
+    private readonly Filesystem $filesystem;
+
+    public function __construct(
+        private readonly string $baseDirectory = __DIR__.'/../../storage'
+    ) {
+        $this->filesystem = new Filesystem();
     }
 
     public function execute(): string
     {
         $filePath = $this->baseDirectory.'/lessons.txt';
 
-        if (!file_exists($filePath)) {
+        if (!$this->filesystem->exists($filePath)) {
             return self::NO_LESSONS;
         }
 
-        return (string) file_get_contents($filePath);
+        return $this->filesystem->readFile($filePath);
     }
 }
