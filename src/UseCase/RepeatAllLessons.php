@@ -11,19 +11,17 @@ class RepeatAllLessons
     private readonly Filesystem $filesystem;
 
     public function __construct(
-        private readonly string $baseDirectory = __DIR__.'/../../storage'
+        private readonly string $pathToFile = __DIR__.'/../../storage/lessons.txt'
     ) {
         $this->filesystem = new Filesystem();
     }
 
     public function execute(): string
     {
-        $filePath = $this->baseDirectory.'/lessons.txt';
-
-        if (!$this->filesystem->exists($filePath)) {
+        if (!$this->filesystem->exists($this->pathToFile)) {
             return self::NO_LESSONS;
         }
 
-        return $this->filesystem->readFile($filePath);
+        return $this->filesystem->readFile($this->pathToFile);
     }
 }

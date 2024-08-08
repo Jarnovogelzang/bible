@@ -56,7 +56,7 @@ class IntegrationContext implements Context
     #[When('I remember the lesson "Je mag je hart ophalen en plezier hebben in het leven."')]
     public function iRememberTheLesson(): void
     {
-        $rememberLessonStub = new RememberLessonStub(new Filesystem());
+        $rememberLessonStub = new RememberLessonStub();
         $rememberLessonCommand = new RememberLessonCommand($rememberLessonStub);
 
         $commandTester = new CommandTester($rememberLessonCommand);

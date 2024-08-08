@@ -1,7 +1,7 @@
 Feature: Remember a lesson (from God)
-  In order to internalize the lessons God wants me to learn
-  As a believer
-  I need to be able to remember and repeat the lessons learnt
+  In order to internalize the lessons God is learning me
+  As a born-again Christian and disciple of Jesus Christ
+  I need to be able keep a lesson in my heart and put it in front of my sight
 
   Scenario: Remembering a single lessons
     Given all the learnt lessons are removed

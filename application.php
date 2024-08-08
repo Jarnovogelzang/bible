@@ -21,10 +21,10 @@ $application = new Application(name: 'Memorize Scripture', version: '0.0.1');
 
 $filesystem = new Filesystem();
 
-$rememberLessonCommand = new RememberLessonCommand(new RememberLesson($filesystem));
-$rememberVerseCommand = new RememberVerseCommand(new RememberVerse($filesystem));
-$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons($filesystem));
-$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses($filesystem));
+$rememberLessonCommand = new RememberLessonCommand(new RememberLesson());
+$rememberVerseCommand = new RememberVerseCommand(new RememberVerse());
+$removeAllLessonsCommand = new RemoveAllLessonsCommand(new RemoveAllLessons());
+$removeAllVersesCommand = new RemoveAllVersesCommand(new RemoveAllVerses());
 $repeatAllLessonsCommand = new RepeatAllLessonsCommand(new RepeatAllLessons());
 $repeatAllVersesCommand = new RepeatAllVersesCommand(new RepeatAllVerses());
 

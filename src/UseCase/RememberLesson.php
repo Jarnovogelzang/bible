@@ -8,7 +8,7 @@ class RememberLesson
 {
     private readonly Filesystem $filesystem;
 
-    public function __construct()
+    public function __construct(private readonly string $pathToFile = __DIR__.'/../../storage/lessons.txt')
     {
         $this->filesystem = new Filesystem();
     }
@@ -16,7 +16,7 @@ class RememberLesson
     public function execute(string $lesson): void
     {
         $this->filesystem->appendToFile(
-            filename: __DIR__.'/../../storage/lessons.txt',
+            filename: $this->pathToFile,
             content: $lesson.PHP_EOL
         );
     }
